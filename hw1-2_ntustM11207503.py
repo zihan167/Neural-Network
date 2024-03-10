@@ -13,9 +13,9 @@ class SimpleNet(nn.Module):
         x = self.fc(x)
         return x
 
-# 初始化數據
+# 輸入數據、訓練期望值
 x_train = torch.FloatTensor([[0, 0], [1, 1], [0, 1], [1, 0]])
-y_train = torch.FloatTensor([[0], [1], [1], [0]])
+y_train = torch.FloatTensor([[0], [1], [0], [1]])
 
 # 定義模型、損失函數和優化器
 model = SimpleNet()
@@ -23,7 +23,7 @@ criterion = nn.MSELoss()
 optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
 
 # 訓練模型
-epochs = 40
+epochs = 80
 losses = []
 for epoch in range(epochs):
     optimizer.zero_grad()
@@ -45,7 +45,7 @@ plt.show()
 # 權重、輸出
 print("Weights of the network:")
 print(model.fc.weight)
-print("\nOutputs for inputs:")
+
 with torch.no_grad():
     output_00 = model(torch.FloatTensor([[0, 0]]))
     output_11 = model(torch.FloatTensor([[1, 1]]))
