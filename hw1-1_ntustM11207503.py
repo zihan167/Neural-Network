@@ -23,7 +23,7 @@ criterion = nn.MSELoss()
 optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
 
 # 訓練模型
-epochs = 40
+epochs = 80
 losses = []
 for epoch in range(epochs):
     optimizer.zero_grad()
@@ -46,7 +46,7 @@ plt.show()
 # 權重、輸出
 print("Weights of the network:")
 print(model.fc.weight)
-print("\nOutputs for input (0, 0) and (1, 1):")
+
 with torch.no_grad():
     output_00 = model(torch.FloatTensor([[0]]))
     output_11 = model(torch.FloatTensor([[1]]))
