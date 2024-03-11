@@ -20,10 +20,10 @@ y_train = torch.FloatTensor([[0], [1]])
 # 定義模型、損失函數和優化器
 model = SimpleNet()
 criterion = nn.MSELoss()
-optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
+optimizer = torch.optim.SGD(model.parameters(), lr=0.15)
 
 # 訓練模型
-epochs = 80
+epochs = 40
 losses = []
 for epoch in range(epochs):
     optimizer.zero_grad()
